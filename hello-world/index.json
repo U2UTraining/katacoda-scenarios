@@ -1,11 +1,11 @@
 {
-  "title": "Hello World Scenario",
-  "description": "Your First Scenario",
+  "title": "U2U Kubernetes Lab",
+  "description": "In this lab you will set up your first Kubernetes cluster",
   "difficulty": "beginner",
-  "time": "2 minutes",
+  "time": "40 minutes",
   "details": {
     "steps": [{
-      "title": "Step 1 - Run Command",
+      "title": "Step 1 - Creating a Cluster",
       "text": "step1.md"
     }],
     "intro": {
@@ -17,7 +17,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
   },
   "backend": {
