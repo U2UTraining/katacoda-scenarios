@@ -19,6 +19,10 @@ Let's take a look at the cluster itself. The following command should give you s
 
 Finally let's see how many nodes we have available:
 
+`kubectl get nodes`{{execute}}
+
+Just one for now.
+
 
 
 ## Creating Pods
@@ -29,9 +33,9 @@ backend pod:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: redis
-  labels:
     name: redis
+    labels:
+        name: redis
 spec:
   containers:
   - name: azure-vote-back
