@@ -2,7 +2,7 @@
   "title": "U2U Kubernetes Lab",
   "description": "In this lab you will set up your first Kubernetes cluster",
   "difficulty": "beginner",
-  "time": "40 minutes",
+  "time": "30-40 minutes",
   "details": {
     "steps": [
       {
@@ -15,6 +15,7 @@
       }
     ],
     "intro": {
+      "courseData": "courseBase.sh",
       "text": "intro.md",
       "credits": ""
     },
@@ -23,18 +24,18 @@
     }
   },
   "files": [
-    "pod-front.yaml",
     "pod-back.yaml",
-    "service-front.yaml",
+    "pod-front.yaml",
     "service-back.yaml",
-    "deployment-front.yaml",
-    "deployment-back.yaml"
+    "service-front.yaml",
+    "deployment-back.yaml",
+    "deployment-front.yaml"
   ],
   "environment": {
     "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "minikube"
   }
 }

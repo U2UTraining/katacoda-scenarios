@@ -1,5 +1,21 @@
 ## Creating Pods
 
+-Create pod
+
+-get opds/describe pods
+
+-use proxy to verify
+
+
+
+-curl
+
+`curl `{{execute}}
+
+-delete pod
+
+`kubectl delete pod --all`{{execute}}
+
 backend pod:
 
 <pre class="file"
