@@ -23,7 +23,12 @@
     }
   },
   "files": [
-    "pod.yaml"
+    "pod-front.yaml",
+    "pod-back.yaml",
+    "service-front.yaml",
+    "service-back.yaml",
+    "deployment-front.yaml",
+    "deployment-back.yaml"
   ],
   "environment": {
     "uilayout": "editor-terminal",
