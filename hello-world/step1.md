@@ -2,17 +2,19 @@ This is your first step.
 
 ## Task
 
-This is an _example_ of creating a scenario and running a **command**
+Start Kubernetes with the following command
 
-`echo 'Hello World'`{{execute}}
+`launch.sh`{{execute}}
+
+backend pod:
 
 ```
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: redis
   labels:
-    name: nginx
+    name: redis
 spec:
   containers:
   - name: azure-vote-back
