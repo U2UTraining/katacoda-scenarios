@@ -9,14 +9,14 @@ backend pod:
 test:
 
 <pre class="file"
-  data-filename="./files/pod-front.yaml"
+  data-filename="./pod.yaml"
   data-target="replace">
 apiVersion: v1
 kind: Pod
 metadata:
+  name: redis
+  labels:
     name: redis
-    labels:
-        name: redis
 spec:
   containers:
   - name: azure-vote-back
@@ -32,9 +32,9 @@ test:
 apiVersion: v1
 kind: Pod
 metadata:
+  name: redis
+  labels:
     name: redis
-    labels:
-        name: redis
 spec:
   containers:
   - name: azure-vote-back
