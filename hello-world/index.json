@@ -4,10 +4,16 @@
   "difficulty": "beginner",
   "time": "40 minutes",
   "details": {
-    "steps": [{
-      "title": "Step 1 - Creating a Cluster",
-      "text": "step1.md"
-    }],
+    "steps": [
+      {
+        "title": "Step 1 - Creating a Cluster",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 - Creating Pods",
+        "text": "step2.md"
+      }
+    ],
     "intro": {
       "text": "intro.md",
       "credits": ""
@@ -17,8 +23,8 @@
     }
   },
   "files": [
-        "pod.yaml"
-    ],
+    "pod.yaml"
+  ],
   "environment": {
     "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
