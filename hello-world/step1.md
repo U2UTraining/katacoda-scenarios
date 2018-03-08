@@ -6,7 +6,8 @@ This is an _example_ of creating a scenario and running a **command**
 
 `echo 'Hello World'`{{execute}}
 
-`apiVersion: v1
+```
+apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
@@ -18,4 +19,5 @@ spec:
     image: redis
     ports:
     - containerPort: 6379
-      name: redis`{{copy}}
+      name: redis
+```{{copy}}
