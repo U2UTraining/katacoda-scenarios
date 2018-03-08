@@ -12,6 +12,10 @@
       {
         "title": "Step 2 - Creating Pods",
         "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Scaling with Deployments",
+        "text": "step3.md"
       }
     ],
     "intro": {
@@ -24,8 +28,8 @@
     }
   },
   "files": [
-    "pod-back.yaml",
-    "pod-front.yaml",
+    "pod.yaml",
+    "deployment.yaml",
     "service-back.yaml",
     "service-front.yaml",
     "deployment-back.yaml",
@@ -33,7 +37,7 @@
   ],
   "environment": {
     "uilayout": "editor-terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `minikube start`\u001b[m\r\n"
   },
   "backend": {
     "imageid": "minikube"

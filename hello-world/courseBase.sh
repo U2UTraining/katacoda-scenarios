@@ -1,1 +1,1 @@
-sleep 1; echo coursebase
+sleep 1; minikube start

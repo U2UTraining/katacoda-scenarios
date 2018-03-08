@@ -1,154 +1,64 @@
 ## Creating Pods
 
--Create pod
-
--get opds/describe pods
-
--use proxy to verify
-
-
-
--curl
-
-`curl `{{execute}}
-
--delete pod
-
-`kubectl delete pod --all`{{execute}}
-
-backend pod:
+In this step, you will create your first pod in the cluster. You can use a YAML file to descrive your pod.
+Copy the following piece of code to the pod.yaml file.
 
 <pre class="file"
-  data-filename="./pod-back.yaml"
+  data-filename="./pod.yaml"
   data-target="replace">
 apiVersion: v1
 kind: Pod
 metadata:
-  name: redis
-  labels:
-    name: redis
+  name: webapp1
 spec:
   containers:
-  - name: azure-vote-back
-    image: redis
-    ports:
-    - containerPort: 6379
-      name: redis
-</pre>
-
-frontend pod:
-
-<pre class="file"
-  data-filename="./pod-front.yaml"
-  data-target="replace">
-apiVersion: v1
-kind: Pod
-metadata:
-  name: azure-vote-front
-spec:
-  containers:
-  - name: azure-vote-front
-    image: microsoft/azure-vote-front:v1
+  - name: webapp1
+    image: katacoda/docker-http-server:latest
     ports:
     - containerPort: 80
-    env:
-    - name: REDIS
-      value: "azure-vote-back"
 </pre>
 
-## Creating Services
+It uses a simple image that receives HTTP requests and sends back the name of the pod it runs on.
 
-backend service:
+To deploy this pod on the cluster, you need to use the **create** command:
 
-<pre class="file"
-  data-filename="./service-back.yaml"
-  data-target="replace">
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
-</pre>
+`kubectl create -f pod.yaml`{{execute}}
 
-frontend service:
+Notice that you didn't have to specify the resource type. Kubectl knows it's a pod by inspecting the **kind** property in the YAML file.
 
-<pre class="file"
-  data-filename="./service-front.yaml"
-  data-target="replace">
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-</pre>
+Check that your pod is running by using the **get** command:
 
-## Creating Deployments
+`kubectl get pods`{{execute}}
 
-backend deployment:
+Make sure the pod is running. If not, wait a few seconds and execute the command again. Alternatively you can use **--watch** parameter to keep monitoring the pods.
 
-<pre class="file"
-  data-filename="./deployment-back.yaml"
-  data-target="replace">
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      containers:
-      - name: azure-vote-back
-        image: redis
-        ports:
-        - containerPort: 6379
-          name: redis
-</pre>
+`kubectl get pods --watch`{{execute}}
 
-frontend deployment:
+You can stop this command by using `Crtl+C`.
 
-<pre class="file"
-  data-filename="./deployment-front.yaml"
-  data-target="replace">
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5 
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      containers:
-      - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
-        env:
-        - name: REDIS
-          value: "azure-vote-back"
-</pre>
+If you want more information about your pod you can use the following command:
+
+`kubectl describe pod/webapp1`{{execute}}
+
+here, webapp1 is the name of your pod. If you want a description of all pods, you can simply leave out the name. Notice the events at the end of the description. There, you can see how the image was pulled and a container was created.
+
+Let's see if your pod actually does something. You'll need to talk to that pod. By default a pad can only be adressed from within the cluster, so you'll need to set up a **proxy** first.
+Open a second terminal and run the following command:
+
+`kubectl proxy`{{execute T2}}
+
+The proxy will allow you to talk to the cluster directly. You should it running on localhost:8001.
+
+Back in terminal 1, check if your proxy is functioning properly. You can do this by simply requesting the version.
+
+`curl http://localhost:8001/version`{{execute T1}}
+
+You can now send a message to your pod using the following URL:
+
+`curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/webapp1/`{{execute T1}}
+
+This basically says send a an HTTP GET to port 80 for pod "webapp1" in namespace "default".
+
+Ok, god job. Don't forget to clean up before moving to the next part:
+
+`kubectl delete pod --all`{{execute}}

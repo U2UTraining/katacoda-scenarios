@@ -1,9 +1,9 @@
 ## Getting Things Up and Running
 
-Start Kubernetes with the following command:
-(you can simply click the box)
+Start the Kubernetes cluster with the following command:
+(you can simply click the box t execute the command)
 
-`launch.sh`{{execute}}
+`minikube start`{{execute}}
 
 Wait until Kubernetes is done loading. Then use the following command to verify that **kubectl** is installed:
 
