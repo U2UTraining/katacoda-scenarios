@@ -1,7 +1,4 @@
-## Getting Things Up and Running
-
 Start the Kubernetes cluster with the following command:
-(you can simply click the box t execute the command)
 
 `minikube start`{{execute}}
 

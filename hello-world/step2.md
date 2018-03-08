@@ -1,5 +1,3 @@
-## Creating Pods
-
 In this step, you will create your first pod in the cluster. You can use a YAML file to descrive your pod.
 Copy the following piece of code to the pod.yaml file.
 
@@ -47,7 +45,7 @@ Open a second terminal and run the following command:
 
 `kubectl proxy`{{execute T2}}
 
-The proxy will allow you to talk to the cluster directly. You should it running on localhost:8001.
+The proxy will allow you to talk to the cluster directly. It should start running on localhost:8001.
 
 Back in terminal 1, check if your proxy is functioning properly. You can do this by simply requesting the version.
 

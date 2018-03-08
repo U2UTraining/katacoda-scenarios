@@ -6,7 +6,8 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1 - Creating a Cluster",
+        "title": "Step 1 - Getting Things Up and Running",
+        "code": "foreground.sh",
         "text": "step1.md"
       },
       {
@@ -16,6 +17,14 @@
       {
         "title": "Step 3 - Scaling with Deployments",
         "text": "step3.md"
+      },
+      {
+        "title": "Step 4 - Using Services",
+        "text": "step34.md"
+      },
+      {
+        "title": "Step 5 - Upgrading an Application",
+        "text": "step5.md"
       }
     ],
     "intro": {
@@ -30,10 +39,7 @@
   "files": [
     "pod.yaml",
     "deployment.yaml",
-    "service-back.yaml",
-    "service-front.yaml",
-    "deployment-back.yaml",
-    "deployment-front.yaml"
+    "service.yaml"
   ],
   "environment": {
     "uilayout": "editor-terminal",

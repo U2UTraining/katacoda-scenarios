@@ -1,5 +1,3 @@
-## Scaling with Deployments
-
 In this step, you will replace your pod with a deployment. This is a far more flexible option that allows for easier scaling and upgrading.
 
 Copy the following content into deployment.yaml:
@@ -15,6 +13,8 @@ spec:
   replicas: 1
   template:
     metadata:
+      labels:
+        app: webapp1
     spec:
       containers:
       - name: webapp1
@@ -32,7 +32,7 @@ Also notice that no name property is set in the template's metadata. The name is
 
 Use 
 
-`kubectl get deployments`
+`kubectl get deployments`{{execute T1}}
 
 to verify the state.
 
@@ -43,13 +43,13 @@ to verify the state.
 
 Use
 
-`kubectl get pods`
+`kubectl get pods -o wide`{{execute T1}}
 
-to see the number of pods. Notice the name that was given to it.
+to see your of pods. Notice the name that was given to it.
 
 Let's use your proxy to verify that it's running properly. First get the pod name:
 
-`export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}') echo Name of the Pod: $POD_NAME`{{execute T1}}
+`POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}') echo Name of the Pod: $POD_NAME`{{execute T1}}
 
 And then do the same request as in the previous step.
 
@@ -70,6 +70,8 @@ spec:
   replicas: 3
   template:
     metadata:
+      labels:
+        app: webapp1
     spec:
       containers:
       - name: webapp1
@@ -86,7 +88,7 @@ Use
 
 `kubectl get pods -o wide --watch`{{execute T1}}
 
-To see the incoming Pods. Once again you can use the curl command with the various pod names to see if they are working.
+To see the incoming Pods. Use `Ctrl+C` to stop the command. Once again you can use the curl command with the various pod names to see if they are working.
 
 `curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/$POD_NAME/`{{execute T1}}
 
