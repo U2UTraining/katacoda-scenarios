@@ -2,7 +2,7 @@
   "title": "U2U Kubernetes Lab",
   "description": "In this lab you will set up your first Kubernetes cluster",
   "difficulty": "beginner",
-  "time": "30-40 minutes",
+  "time": "30 minutes",
   "details": {
     "steps": [
       {

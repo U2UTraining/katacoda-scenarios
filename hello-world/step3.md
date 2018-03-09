@@ -49,7 +49,7 @@ to see your of pods. Notice the name that was given to it.
 
 Let's use your proxy to verify that it's running properly. First get the pod name:
 
-`POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}') echo Name of the Pod: $POD_NAME`{{execute T1}}
+`export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}') echo Name of the Pod: $POD_NAME`{{execute T1}}
 
 And then do the same request as in the previous step.
 

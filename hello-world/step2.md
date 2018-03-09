@@ -16,9 +16,9 @@ spec:
     - containerPort: 8080
 </pre>
 
-It uses a simple image that receives HTTP requests and sends back the name of the pod it runs on.
+It uses a simple image that receives HTTP requests and sends back a version and the name of the pod it runs on.
 
-To deploy this pod on the cluster, you need to use the **create** command:
+To deploy this pod on the cluster, you need to use the **create** command. This might take a few seconds to complete.
 
 `kubectl create -f pod.yaml`{{execute}}
 
@@ -38,7 +38,7 @@ If you want more information about your pod you can use the following command:
 
 `kubectl describe pod/nodeapp`{{execute}}
 
-here, nodeapp is the name of your pod. If you want a description of all pods, you can simply leave out the name. Notice the events at the end of the description. There, you can see how the image was pulled and a container was created.
+Here, "nodeapp" is the name of your pod. If you want a description of all pods, you can simply leave out the name. Notice the events at the end of the description. There, you can see how the image was pulled and a container was created.
 
 Let's see if your pod actually does something. You'll need to talk to that pod. By default a pad can only be adressed from within the cluster, so you'll need to set up a **proxy** first.
 Open a second terminal and run the following command:
@@ -55,7 +55,54 @@ You can now send a message to your pod using the following URL:
 
 `curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/nodeapp/`{{execute T1}}
 
-This basically says send a an HTTP GET to port 80 for pod "nodeapp" in namespace "default".
+This basically says send a an HTTP GET to the default port for pod "nodeapp" in namespace "default". The default port is 8080, as specified in pod.yaml. This is also the port exposed by the container and used in the nodejs application:
+
+DockerFile
+<pre>
+FROM node:8-alpine
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/
+RUN npm install
+
+COPY . /usr/src/app
+
+EXPOSE 8080
+CMD [ "npm", "start" ]
+</pre>
+
+DockerFile
+```docker
+FROM node:8-alpine
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/
+RUN npm install
+
+COPY . /usr/src/app
+
+EXPOSE 8080
+CMD [ "npm", "start" ]
+```
+
+server.js
+```javascript
+var http = require("http");
+var os = require('os');
+
+var server = http.createServer(function (request, response) {
+  response.writeHead(200, {
+    "Content-Type": "text/plain"
+  });
+
+  response.end("V1 request processed by " + os.hostname() + "\n");
+}).listen(8080);
+console.log('Listening on port 8080');
+```
 
 Ok, god job. Don't forget to clean up before moving to the next part:
 
