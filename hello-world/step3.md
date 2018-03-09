@@ -8,17 +8,17 @@ Copy the following content into deployment.yaml:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: webapp1
+  name: nodeapp
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: webapp1
+        app: nodeapp
     spec:
       containers:
-      - name: webapp1
-        image: katacoda/docker-http-server:latest
+      - name: nodeapp
+        image: landerdocker/nodejs-http-server:v1
         ports:
         - containerPort: 80
 </pre>
@@ -65,17 +65,17 @@ Let's scale up the application. Update description.yaml to use 3 replicas:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: webapp1
+  name: nodeapp
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        app: webapp1
+        app: nodeapp
     spec:
       containers:
-      - name: webapp1
-        image: katacoda/docker-http-server:latest
+      - name: nodeapp
+        image: landerdocker/nodejs-http-server:v1
         ports:
         - containerPort: 80
 </pre>

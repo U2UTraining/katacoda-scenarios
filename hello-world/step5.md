@@ -16,17 +16,17 @@ Ok, let's get busy. Update your deployment.yaml file.
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: webapp1
+  name: nodeapp
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        app: webapp1
+        app: nodeapp
     spec:
       containers:
-      - name: webapp1
-        image: katacoda/docker-http-server:v2
+      - name: nodeapp
+        image: landerdocker/nodejs-http-server:v2
         ports:
         - containerPort: 80
 </pre>
@@ -41,7 +41,7 @@ To see the rolling update execute
 
 You can see the various states of your pods(Running, Terminating, ContainerCreating, ...). In addition, you can use the **rollout status** command to check upgrade progress.
 
-`kubectl rollout status deployments/webapp1`{{execute}}
+`kubectl rollout status deployments/nodeapp`{{execute}}
 
 Finally you can double-check by sending a request:
 
@@ -49,5 +49,5 @@ Finally you can double-check by sending a request:
 
 If the upgrade didn't go as planned, you can always roll back using the following command:
 
-`kubectl rollout undo deployments/webapp1`{{execute}}
+`kubectl rollout undo deployments/nodeapp`{{execute}}
 
