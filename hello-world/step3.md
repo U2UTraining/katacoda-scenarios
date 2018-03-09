@@ -20,7 +20,7 @@ spec:
       - name: nodeapp
         image: landerdocker/nodejs-http-server:v1
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 </pre>
 
 And deploy it using
@@ -77,7 +77,7 @@ spec:
       - name: nodeapp
         image: landerdocker/nodejs-http-server:v1
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 </pre>
 
 To update the deployment, you can not use the **create** command. The deployment already exists! But you can use the **apply** command to update the deployment.

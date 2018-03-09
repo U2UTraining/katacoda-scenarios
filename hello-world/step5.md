@@ -28,7 +28,7 @@ spec:
       - name: nodeapp
         image: landerdocker/nodejs-http-server:v2
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 </pre>
 
 to apply the changes you can use the following command:

@@ -13,7 +13,7 @@ spec:
   - name: nodeapp
     image: landerdocker/nodejs-http-server:v1
     ports:
-    - containerPort: 80
+    - containerPort: 8080
 </pre>
 
 It uses a simple image that receives HTTP requests and sends back the name of the pod it runs on.
