@@ -47,9 +47,13 @@ Use
 
 to see your of pods. Notice the name that was given to it.
 
-Let's use your proxy to verify that it's running properly. First get the pod name:
+Let's use your proxy to verify that it's running properly. First place the pod name into a variable:
 
-`export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}') echo Name of the Pod: $POD_NAME`{{execute T1}}
+`export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')`{{execute T1}}
+
+Check the value:
+
+`echo Name of the Pod: $POD_NAME`{{execute T1}}
 
 And then do the same request as in the previous step.
 
@@ -88,7 +92,7 @@ Use
 
 `kubectl get pods -o wide --watch`{{execute T1}}
 
-To see the incoming Pods. Use `Ctrl+C` to stop the command. Once again you can use the curl command with the various pod names to see if they are working.
+To see the incoming Pods. Use `Ctrl+C` to stop the command. Once again you can use the curl command with the various pod names to see if they are working. Replace $POD_NAME with the pods names and don't forget the `/` at the end.
 
 `curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/$POD_NAME/`{{execute T1}}
 

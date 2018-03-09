@@ -73,7 +73,7 @@ EXPOSE 8080
 CMD [ "npm", "start" ]
 </pre>
 
-DockerFile
+**DockerFile**
 ```docker
 FROM node:8-alpine
 
@@ -89,12 +89,12 @@ EXPOSE 8080
 CMD [ "npm", "start" ]
 ```
 
-server.js
+**server.js**
 ```javascript
-var http = require("http");
-var os = require('os');
+const http = require("http");
+const os = require('os');
 
-var server = http.createServer(function (request, response) {
+const server = http.createServer(function (request, response) {
   response.writeHead(200, {
     "Content-Type": "text/plain"
   });
