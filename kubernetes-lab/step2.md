@@ -57,22 +57,6 @@ You can now send a message to your pod using the following URL:
 
 This basically says send a an HTTP GET to the default port for pod "nodeapp" in namespace "default". The default port is 8080, as specified in pod.yaml. This is also the port exposed by the container and used in the nodejs application:
 
-DockerFile
-<pre>
-FROM node:8-alpine
-
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY package.json /usr/src/app/
-RUN npm install
-
-COPY . /usr/src/app
-
-EXPOSE 8080
-CMD [ "npm", "start" ]
-</pre>
-
 **DockerFile**
 ```docker
 FROM node:8-alpine
