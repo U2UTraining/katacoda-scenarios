@@ -88,6 +88,6 @@ const server = http.createServer(function (request, response) {
 console.log('Listening on port 8080');
 ```
 
-Ok, god job. Don't forget to clean up before moving to the next part:
+Ok, good job. Don't forget to clean up before moving to the next part:
 
 `kubectl delete pod --all`{{execute}}
