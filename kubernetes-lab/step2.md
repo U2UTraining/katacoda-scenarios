@@ -40,7 +40,7 @@ If you want more information about your pod you can use the following command:
 
 Here, "nodeapp" is the name of your pod. If you want a description of all pods, you can simply leave out the name. Notice the events at the end of the description. There, you can see how the image was pulled and a container was created.
 
-Let's see if your pod actually does something. You'll need to talk to that pod. By default a pod can only be adressed from within the cluster, so you'll need to set up a **proxy** first.
+Let's see if your pod actually does something. You'll need to talk to that pod. By default a pod can only be addressed from within the cluster, so you'll need to set up a **proxy** first.
 Open a second terminal and run the following command:
 
 `kubectl proxy`{{execute T2}}
