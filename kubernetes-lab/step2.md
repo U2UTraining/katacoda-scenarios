@@ -40,7 +40,7 @@ If you want more information about your pod you can use the following command:
 
 Here, "nodeapp" is the name of your pod. If you want a description of all pods, you can simply leave out the name. Notice the events at the end of the description. There, you can see how the image was pulled and a container was created.
 
-Let's see if your pod actually does something. You'll need to talk to that pod. By default a pad can only be adressed from within the cluster, so you'll need to set up a **proxy** first.
+Let's see if your pod actually does something. You'll need to talk to that pod. By default a pod can only be adressed from within the cluster, so you'll need to set up a **proxy** first.
 Open a second terminal and run the following command:
 
 `kubectl proxy`{{execute T2}}
@@ -55,7 +55,7 @@ You can now send a message to your pod using the following URL:
 
 `curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/nodeapp/`{{execute T1}}
 
-This basically says send a an HTTP GET to the default port for pod "nodeapp" in namespace "default". The default port is 8080, as specified in pod.yaml. This is also the port exposed by the container and used in the nodejs application:
+This basically says send an HTTP GET to the default port for pod "nodeapp" in namespace "default". The default port is 8080, as specified in pod.yaml. This is also the port exposed by the container and used in the nodejs application:
 
 **DockerFile**
 ```docker
