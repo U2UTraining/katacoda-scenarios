@@ -1,4 +1,4 @@
-In this step, you will create your first pod in the cluster. You can use a YAML file to descrive your pod.
+In this step, you will create your first pod in the cluster. You can use a YAML file to describe your pod.
 Copy the following piece of code to the pod.yaml file.
 
 <pre class="file"
