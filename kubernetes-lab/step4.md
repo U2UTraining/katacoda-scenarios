@@ -1,6 +1,6 @@
 In this step, you will use a service to expose your deployment.
 
-Currently you are using a proxy to comminucate with your pods. This however is not possible for real-world traffic. To organize your traffic, you need a **service**.
+Currently you are using a proxy to communicate with your pods. This however is not possible for real-world traffic. To organize your traffic, you need a **service**.
 
 You need to expose nodeapp to the external world. That means you only have two options: **NodePort** and **LoadBalancer**. Unlike Azure, Amazon and other cloud providers, minikube doesn't have an implementation for a load balancer, so you'll need to use NodePort.
 NodePort allows the external world to access your container as follows &lt;NODE-IP&gt;:&lt;NODE-PORT&gt;. The NODE-PORT is then mapped to the port used by the container. The obvious downside here is that you need to know the NODE-ID and that node needs to be externally accessible.
@@ -55,4 +55,4 @@ Finally, execute the following command:
 
 `kubectl get services`{{execute}}
 
-Notice that there is no External-IP address assigned to the service. Minikube simple doesn't expose it. In a real-world scenario we will need a cloud provider (or on-prem) that can handle those scenario's.
+Notice that there is no External-IP address assigned to the service. Minikube simply doesn't expose it. In a real-world scenario we will need a cloud provider (or on-prem) that can handle those scenarios.
