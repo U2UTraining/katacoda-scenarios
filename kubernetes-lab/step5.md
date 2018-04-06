@@ -1,8 +1,8 @@
-In this step, you will use a upgrade the version of the image running in your cluster.
+In this step, you will upgrade the version of the image running in your cluster.
 
-Let's say you have modified some code and pushed a new version to the container registry. The next step is to deply that new image to the cluster. 
+Let's say you have modified some code and pushed a new version to the container registry. The next step is to deploy that new image to the cluster. 
 
-This is actually quite easy. All you need to is update the deployment and apply those changes.
+This is actually quite easy. All you need to do is update the deployment and apply those changes.
 
 To see the current image of your pods you can use the **describe** command
 
@@ -43,7 +43,7 @@ You can see the various states of your pods(Running, Terminating, ContainerCreat
 
 `kubectl rollout status deployments/nodeapp`{{execute}}
 
-Finally you can double-check by sending a request:
+Finally, you can double-check by sending a request:
 
 `curl host01:30080`{{execute T1}}
 
