@@ -45,7 +45,7 @@ Use
 
 `kubectl get pods -o wide`{{execute T1}}
 
-to see your of pods. Notice the name that was given to it.
+to see your pods. Notice the name that was given to it.
 
 Let's use your proxy to verify that it's running properly. First place the pod name into a variable:
 
