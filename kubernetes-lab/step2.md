@@ -53,7 +53,7 @@ Back in terminal 1, check if your proxy is functioning properly. You can do this
 
 You can now send a message to your pod using the following URL:
 
-`curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/nodeapp/`{{execute T1}}
+`curl http://localhost:8001/api/v1/namespaces/default/pods/nodeapp/`{{execute T1}}
 
 This basically says send an HTTP GET to the default port for pod "nodeapp" in namespace "default". The default port is 8080, as specified in pod.yaml. This is also the port exposed by the container and used in the nodejs application:
 
