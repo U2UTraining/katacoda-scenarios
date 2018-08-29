@@ -57,7 +57,7 @@ Check the value:
 
 And then do the same request as in the previous step.
 
-`curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/$POD_NAME/`{{execute T1}}
+`curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/`{{execute T1}}
 
 That should be working.
 
@@ -94,5 +94,5 @@ Use
 
 To see the incoming Pods. Use `Ctrl+C` to stop the command. Once again you can use the curl command with the various pod names to see if they are working. Replace $POD_NAME with the pods names and don't forget the `/` at the end.
 
-`curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/$POD_NAME/`{{execute T1}}
+`curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/`{{execute T1}}
 
