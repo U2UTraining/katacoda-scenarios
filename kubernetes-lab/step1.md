@@ -18,4 +18,4 @@ Finally let's see how many nodes we have available:
 
 `kubectl get nodes`{{execute}}
 
-Just one for now. Notice the name **host01**, you can use this name to talk to this node directly from within the cluster.
+Just one for now. Notice the name, it sould be **minikube** or **host01**, these are aliases. You can use this name to talk to this node directly from within the cluster.
