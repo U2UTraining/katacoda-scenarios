@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: landerdocker/nodejs-http-server:v1
+        image: u2utraining/nodejs-http-server:v1
         ports:
         - containerPort: 8080
 </pre>
