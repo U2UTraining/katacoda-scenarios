@@ -36,10 +36,10 @@ Use
 
 to verify the state.
 
-- The DESIRED state is showing the configured number of replicas
-- The CURRENT state show how many replicas are running now
+- The READY state is showing the of replicas ready to receive traffic
 - The UP-TO-DATE is the number of replicas that were updated to match the desired (configured) state
 - The AVAILABLE state shows how many replicas are actually AVAILABLE to the users
+- The AGE displays the amount of time that the application has been running.
 
 Use
 
