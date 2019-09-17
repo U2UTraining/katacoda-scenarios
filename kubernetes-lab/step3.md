@@ -61,7 +61,7 @@ And then do the same request as in the previous step.
 
 That should be working.
 
-Let's scale up the application. Update description.yaml to use 3 replicas:
+Let's scale up the application. Update deployment.yaml to use 3 replicas:
 
 <pre class="file"
   data-filename="./deployment.yaml"
