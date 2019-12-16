@@ -5,12 +5,15 @@ Copy the following content into deployment.yaml:
 <pre class="file"
   data-filename="./deployment.yaml"
   data-target="replace">
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodeapp
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nodeapp
   template:
     metadata:
       labels:
@@ -18,9 +21,13 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: u2utraining/nodejs-http-server:v1
+        image: landerdocker/nodejs-http-server:v1
         ports:
         - containerPort: 8080
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 </pre>
 
 And deploy it using
@@ -66,12 +73,15 @@ Let's scale up the application. Update deployment.yaml to use 3 replicas:
 <pre class="file"
   data-filename="./deployment.yaml"
   data-target="replace">
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodeapp
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: nodeapp
   template:
     metadata:
       labels:
@@ -79,9 +89,13 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: u2utraining/nodejs-http-server:v1
+        image: landerdocker/nodejs-http-server:v1
         ports:
         - containerPort: 8080
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 </pre>
 
 To update the deployment, you can not use the **create** command. The deployment already exists! But you can use the **apply** command to update the deployment.
