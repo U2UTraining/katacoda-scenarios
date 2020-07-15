@@ -13,12 +13,15 @@ Ok, let's get busy. Update your deployment.yaml file.
 <pre class="file"
   data-filename="./deployment.yaml"
   data-target="replace">
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodeapp
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: nodeapp
   template:
     metadata:
       labels:
