@@ -35,6 +35,7 @@ spec:
   type: NodePort
   ports:
   - port: 8080
+    targetPort: 8080
     nodePort: 30080
   selector:
     app: nodeapp
@@ -44,7 +45,7 @@ And deploy it using
 
 `kubectl create -f service.yaml`{{execute T1}}
 
-Notice the selector. At runtime, the service will locate all pod machting its selector. Also notice the port mapping. Port 8080 is the one exposed by the container, port 30080 maps to that port (needs to be in 30000-32767 range). That means you can access using &lt;NODE-IP&gt;:30080.
+Notice the selector. At runtime, the service will locate all pod machting its selector. Also notice the port mapping. Port 8080 is the one exposed by the container, port 30080 maps to that port (needs to be in 30000-32767 range). That means you can access it using &lt;NODE-IP&gt;:30080.
 
 `curl host01:30080`{{execute T1}}
 
