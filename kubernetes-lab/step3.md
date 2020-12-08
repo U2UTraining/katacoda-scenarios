@@ -55,6 +55,7 @@ Use
 to see your pods. Notice the name that was given to it.
 
 Let's use your proxy to verify that it's running properly. Make sure your proxy is running by using the following command:
+
 `kubectl proxy{{execute T2}}`
 
 Now, place the pod name into a variable:
