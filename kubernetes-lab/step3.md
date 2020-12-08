@@ -54,7 +54,10 @@ Use
 
 to see your pods. Notice the name that was given to it.
 
-Let's use your proxy to verify that it's running properly. First place the pod name into a variable:
+Let's use your proxy to verify that it's running properly. Make sure your proxy is running by using the following command:
+`kubectl proxy{{execute T2}}`
+
+Now, place the pod name into a variable:
 
 `export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')`{{execute T1}}
 
@@ -62,7 +65,7 @@ Check the value:
 
 `echo Name of the Pod: $POD_NAME`{{execute T1}}
 
-And then do the same request as in the previous step.
+And then do the following request.
 
 `curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/`{{execute T1}}
 
