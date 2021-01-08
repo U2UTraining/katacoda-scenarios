@@ -86,4 +86,4 @@ Ok, good job. Don't forget to clean up before moving to the next part:
 
 `kubectl delete pod --all`{{execute}}
 
-Also stop the port-forwarding in Terminal 2 using `Crtl+C`.
+Also stop the port forwarding in Terminal 2 using `Crtl+C`.
